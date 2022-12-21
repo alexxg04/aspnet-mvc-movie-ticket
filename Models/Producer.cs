@@ -12,6 +12,6 @@ namespace Movie.Models
         public string? Bio { get; set; }
         
         //Relationships
-        public List<Movie> Movies { get; set; }
+        public List<Film> Films { get; set; }
     }
 }

@@ -13,22 +13,22 @@ namespace Movie.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Actor_Movie>().HasKey(am => new
+            modelBuilder.Entity<Actor_Film>().HasKey(af => new
             {
-                am.ActorId,
-                am.MovieId
+                af.ActorId,
+                af.FilmId
             });
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actor_Movies).HasForeignKey(m =>
-            m.MovieId);
+            modelBuilder.Entity<Actor_Film>().HasOne(f => f.Film).WithMany(af => af.Actor_Film).HasForeignKey(f =>
+            f.FilmId);
 
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actor_Movies).HasForeignKey(m =>
-            m.ActorId);
+            modelBuilder.Entity<Actor_Film>().HasOne(f => f.Actor).WithMany(af => af.Actor_Films).HasForeignKey(f =>
+            f.ActorId);
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Actor> Actors { get; set; }
-       
-        public DbSet<Actor_Movie> Actor_Movies { get; set; }
-        public DbSet<Cinema> Cinema { get; set; }
-        public DbSet<Producer> Producer { get; set; }
+        public DbSet<Film> Films { get; set; }
+        public DbSet<Actor_Film> Actor_Movies { get; set; }
+        public DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<Producer> Producers { get; set; }
     }
 }
